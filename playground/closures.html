@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <script src="" async defer></script>
+    <script>
+      //   function outer() {
+      //     const outerVar = 'Outer';
+      //     function inner() {
+      //       const innerVar = 'Inner';
+      //       console.log(innerVar);
+      //       console.log(outerVar);
+      //     }
+      //     return inner;
+      //   }
+
+      //   const innerFn = outer();
+      //   innerFn();
+
+      function createGreeting(greeting = '') {
+        const myGreet = greeting.toUpperCase();
+        return function(name) {
+          return `${myGreet} ${name}`;
+        };
+      }
+
+      const sayHello = createGreeting('hello');
+      const sayHey = createGreeting('hey');
+
+      console.log(sayHello('adam'));
+      console.log(sayHey('abby'));
+
+      function createGame(gameName) {
+        let score = 0;
+
+        function win() {
+          score++;
+          return `Your game ${gameName} score is ${score}`;
+        }
+
+        return win;
+      }
+
+      const hockeyGame = createGame('Hockey');
+      const soccerGame = createGame('Soccer');
+      console.log(hockeyGame());
+      console.log(hockeyGame());
+      console.log(hockeyGame());
+      console.log(hockeyGame());
+      console.log(hockeyGame());
+      console.log(soccerGame());
+      console.log(soccerGame());
+    </script>
+  </body>
+</html>
